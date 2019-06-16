@@ -19,14 +19,17 @@ class City < ApplicationRecord
       # Download and parse the JSON from the api
       res = JSON.parse(Net::HTTP.get(uri))
     end
+
+    # Revtrieves the photo url from api
+    def get_city_picture(name)
+      name = name.strip.gsub!(/\s/, '-') if name =~ /\s/
+      uri = URI("https://api.teleport.org/api/urban_areas/slug:#{URI.encode(name)}/images/")
+
+      pho = JSON.parse(Net::HTTP.get(uri))
+
+      pho = pho["photos"][0]["image"]["web"]
+    end
   end
-
-  def picture
-   uri = HTTParty.get("https://api.teleport.org/api/urban_areas/slug:#{self.name}/images/")
-
-   return uri.parsed_response["photos"][0]["image"]["web"]
-  end
-
 
 private
 

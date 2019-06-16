@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def location
     @city = City.new(name: params[:location][:city_name])
     @city.payload = City.get_weather(@city.name)
+    @city.photo = City.get_city_picture(@city.name)
     if @city.save
       redirect_to root_path, flash: { notice: 'city added' }
     else

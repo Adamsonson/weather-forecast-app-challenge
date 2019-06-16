@@ -2590,6 +2590,13 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
+fade@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/fade/-/fade-0.2.0.tgz#58fb33753f4424a1e3870fb92709e387af797be7"
+  integrity sha1-WPszdT9EJKHjhw+5Jwnjh695e+c=
+  dependencies:
+    prefixed "0.0.0"
+
 fast-deep-equal@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
@@ -5392,6 +5399,11 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2
     chalk "^2.4.2"
     source-map "^0.6.1"
     supports-color "^6.1.0"
+
+prefixed@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/prefixed/-/prefixed-0.0.0.tgz#945b149d92e7375bc660519b1361521aab97df8d"
+  integrity sha1-lFsUnZLnN1vGYFGbE2FSGquX340=
 
 prepend-http@^1.0.0:
   version "1.0.4"
