@@ -1,0 +1,26 @@
+<h1>Weather app</h1>
+
+
+<%= form_for :location, url: location_path, method: :post  do  |f| %>
+<%= f.text_field :city_name %>
+<%= f.submit class:"btn btn-primary" %>
+
+
+<% end  %>
+
+
+
+
+
+<% if @cities.blank? == false  %>
+
+  <% @cities.each do |city|  %>
+<div class="card-product">
+  <img src=" <%= city.picture %>" >
+  <div class="card-product-infos">
+    <h2><%= city.name.capitalize  %></h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+<% end %>
+<%end  %>
