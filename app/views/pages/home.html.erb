@@ -19,8 +19,9 @@
   <img src=" <%= city.photo %>" >
   <div class="card-product-infos">
     <h2><%= city.name.capitalize  %></h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
+  <img src="https://openweathermap.org/img/w/<%= city.payload['list'][0]['weather'][0]['icon']%>.png">
+  <h2> <%= city.payload['list'][0]['main']['temp'].to_i %>°C</h2>
 </div>
 <% end %>
 <%end  %>

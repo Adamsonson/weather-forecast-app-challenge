@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'timezone'
 gem 'pundit'
 gem 'httparty'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
