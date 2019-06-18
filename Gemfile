@@ -19,6 +19,8 @@ gem 'timezone'
 gem 'pundit'
 gem 'httparty'
 gem 'jquery-rails'
+gem 'chartkick'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,18 +1,10 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home location]
+  skip_before_action :authenticate_user!
 
   def home
-    @cities = City.all
+    @cities = City.all.order(created_at: :desc)
   end
 
-  def location
-    @city = City.new(name: params[:location][:city_name])
-    @city.payload = City.get_weather(@city.name)
-    @city.photo = City.get_city_picture(@city.name)
-    if @city.save
-      redirect_to root_path, flash: { notice: 'city added' }
-    else
-      redirect_to root_path, flash: { alert: 'city does not exist' }
-    end
+  def help
   end
 end

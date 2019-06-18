@@ -1,4 +1,10 @@
+require("chartkick")
+require("chart.js")
 import "bootstrap";
+
+
+let chart = Chartkick.charts["chart-id"]
+
 
 let buttonExist;
 

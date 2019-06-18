@@ -1,0 +1,14 @@
+<h1 class="text-center"> <%= @city.name.capitalize %></h1>
+
+<div class="cards">
+  <% @city.payload['list'].each do |forecast| %>
+    <div class="card-category">
+      <h4 class="card-title"><%= Date.parse(forecast['dt_txt']).strftime("%a") %></h4>
+      <h6 class="card-subtitle text-muted"><%= Date.parse(forecast['dt_txt']).strftime("%x") %></br><%= forecast['dt_txt'].split(" ")[1][0..4] %></h6>
+      <img src="https://openweathermap.org/img/w/<%= forecast['weather'][0]['icon']%>.png">
+      <div class="temperature">
+        <h1><%= forecast['main']['temp'].to_i %>°</h1>
+      </div>
+    </div>
+  <% end %>
+</div>

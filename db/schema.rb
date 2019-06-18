@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 2019_06_16_204254) do
     t.string "timezone"
     t.string "photo"
     t.jsonb "payload"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cities_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,4 +38,5 @@ ActiveRecord::Schema.define(version: 2019_06_16_204254) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "users"
 end

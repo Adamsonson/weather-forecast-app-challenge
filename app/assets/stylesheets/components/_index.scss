@@ -3,3 +3,16 @@
 @import "avatar";
 @import "navbar";
 @import "card";
+@import "footbar";
+@import "form";
+
+.body-wrap {
+  display:block!important;
+  max-width:600px!important;
+  margin:0 auto!important; /* makes it centered */
+  clear:both!important;
+}
+
+.help-paragraph {
+  padding: 30px;
+}

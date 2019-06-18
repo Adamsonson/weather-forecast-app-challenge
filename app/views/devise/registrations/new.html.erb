@@ -1,0 +1,32 @@
+<div class="text-center">
+  <div class="logo">Sign-up</div>
+
+  <div class="login-form-1">
+    <!-- <form id="login-form" class="text-left"> -->
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group space-top">
+            <label for="lg_username" class="sr-only">email</label>
+            <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "firstname" }, class:"form-control", id:"lg_username", placeholder:"email", label:false%>
+          </div>
+          <div class="form-group">
+            <label for="lg_username" class="sr-only">password</label>
+            <%= f.input :password, required: true, autofocus: true, input_html: { autocomplete: "firstname" }, class:"form-control", id:"lg_username", placeholder:"password", label:false%>
+          </div>
+          <div class="form-group">
+            <label for="lg_username" class="sr-only">password</label>
+            <%= f.input :password_confirmation, required: true, autofocus: true, input_html: { autocomplete: "firstname" }, class:"form-control", id:"lg_username", placeholder:"*password", label:false%>
+          </div>
+          <div class="form-group login-group-checkbox">
+            <input type="checkbox" id="lg_remember" name="lg_remember">
+            <label for="lg_remember">remember</label>
+          </div>
+        </div>
+        <button type="submit" class="login-button"><i class="fa fa-chevron-right redcol"></i></button>
+      </div>
+    <% end %>
+    <!-- </form> -->
+  </div>

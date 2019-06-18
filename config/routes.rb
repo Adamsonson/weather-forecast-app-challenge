@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
-  get 'pages/home'
   devise_for :users
+
   root to: 'pages#home'
-  post 'pages/home', to: 'pages#location', as: 'location'
+
+  get '/help', to: 'pages#help'
+
+  resources :cities, only: [:create, :destroy, :show] do
+    collection do
+      get 'refresh'
+    end
+  end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :cities, only: [ :index ]
+    end
+  end
 end

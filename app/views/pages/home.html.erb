@@ -1,27 +1,28 @@
-<h1>Weather app</h1>
-
-
-<%= form_for :location, url: location_path, method: :post  do  |f| %>
-<%= f.text_field :city_name %>
-<%= f.submit class:"btn btn-primary" %>
-
-
-<% end  %>
-
-
-
-
-
-<% if @cities.blank? == false  %>
-
-  <% @cities.each do |city|  %>
-<div class="card-product">
-  <img src=" <%= city.photo %>" >
-  <div class="card-product-infos">
-    <h2><%= city.name.capitalize  %></h2>
-  </div>
-  <img src="https://openweathermap.org/img/w/<%= city.payload['list'][0]['weather'][0]['icon']%>.png">
-  <h2> <%= city.payload['list'][0]['main']['temp'].to_i %>°C</h2>
+<div class="body-wrap">
+  <% if @cities.blank? == false  %>
+    <% @cities.each do |city|  %>
+        <div class="card-product">
+          <img class="card-photo img-thumbnail" src=" <%= city.photo %>">
+          <div class="card-product-infos">
+            <h2><%= city.name.capitalize %></h2>
+          </div>
+          <div class="card-product-details">
+            <div class="card-product-weather">
+              <img src="https://openweathermap.org/img/w/<%= city.payload['list'][0]['weather'][0]['icon']%>.png">
+              <div class="card-product-weather-detail">
+                <h2> <%= city.payload['list'][0]['main']['temp'].to_i %>°C</h2><h6 class="card-product-subtitle"><%= city.payload['list'][0]['weather'][0]['description'] %></h6>
+              </div>
+            </div>
+            <div class="card-product-footer">
+              <%= link_to "Forecast", city_path(city)%>
+                <% if policy(city).destroy? %>
+                  <%= link_to 'Delete', city_path(city), method: :delete,
+              data: {confirm: "Are you sure you want to delete card for #{city.name.capitalize}?"}, lass: "btn btn-danger"%>
+              <% end %>
+<!--               <%= link_to '<span>&times;<span>'.html_safe, @city, remote: true, method: :delete %> -->
+            </div>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
 </div>
-<% end %>
-<%end  %>
